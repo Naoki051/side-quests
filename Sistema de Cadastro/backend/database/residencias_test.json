@@ -1,0 +1,24 @@
+[
+    {
+        "id": "2665db97-6858-4cd8-a326-f3714769db5e",
+        "cep": "01001-000",
+        "logradouro": "Praça da Sé",
+        "numero": "100",
+        "bairro": "Sé",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "data_criacao": "2026-02-12T00:32:37.899628+00:00",
+        "data_atualizacao": "2026-02-12T00:32:37.899628+00:00"
+    },
+    {
+        "id": "4a37c70e-5272-4da7-8693-6b7df9cd61dd",
+        "cep": "02002-000",
+        "logradouro": "Av. Paulista",
+        "numero": "1000",
+        "bairro": "Bela Vista",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "data_criacao": "2026-02-12T00:40:00.471812+00:00",
+        "data_atualizacao": "2026-02-12T00:44:07.157371+00:00"
+    }
+]

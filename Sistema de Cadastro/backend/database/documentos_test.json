@@ -1,0 +1,26 @@
+[
+    {
+        "id": "7390e943-fac6-482d-9ba5-b56a5c6a1955",
+        "id_pessoa": "fa06719a-e6d2-4ccd-b08f-101f893b54e5",
+        "tipo": "CPF",
+        "valor": "00098765432"
+    },
+    {
+        "id": "0f4ca9a1-a121-4cc6-9c59-1fd482ca6bef",
+        "id_pessoa": "fa06719a-e6d2-4ccd-b08f-101f893b54e5",
+        "tipo": "RG",
+        "valor": "12.345.678-9"
+    },
+    {
+        "id": "d5a007f8-f99c-4311-88ca-b9e5cd4a2d12",
+        "id_pessoa": "c612f6c1-98b0-4d53-8604-37b9a5f6b6c9",
+        "tipo": "RG",
+        "valor": "99.888.777-6"
+    },
+    {
+        "id": "9bde4c3c-1e0b-4cb5-83c4-02421d0ad9bf",
+        "id_pessoa": "fa06719a-e6d2-4ccd-b08f-101f893b54e5",
+        "tipo": "PASSAPORTE",
+        "valor": "BR998877"
+    }
+]

@@ -1,0 +1,46 @@
+[
+    {
+        "id": "fa06719a-e6d2-4ccd-b08f-101f893b54e5",
+        "nome": "Henrique Naoki",
+        "celular": "11912345678",
+        "data_nascimento": "1990-01-01",
+        "id_responsavel": null,
+        "parentesco": null,
+        "id_residencia": "4a37c70e-5272-4da7-8693-6b7df9cd61dd",
+        "data_criacao": "2026-02-12T00:32:37.902624+00:00",
+        "data_atualizacao": "2026-02-12T00:44:07.157371+00:00"
+    },
+    {
+        "id": "c612f6c1-98b0-4d53-8604-37b9a5f6b6c9",
+        "nome": "Henrique Jr.",
+        "celular": null,
+        "data_nascimento": null,
+        "id_responsavel": "fa06719a-e6d2-4ccd-b08f-101f893b54e5",
+        "parentesco": "Filho",
+        "id_residencia": "2665db97-6858-4cd8-a326-f3714769db5e",
+        "data_criacao": "2026-02-12T00:32:37.962624+00:00",
+        "data_atualizacao": "2026-02-12T00:32:37.962624+00:00"
+    },
+    {
+        "id": "347c9c7f-6d93-42ab-add9-07fc3a37d134",
+        "nome": "Henrique Naoki",
+        "celular": "11912345678",
+        "data_nascimento": null,
+        "id_responsavel": null,
+        "parentesco": null,
+        "id_residencia": "4a37c70e-5272-4da7-8693-6b7df9cd61dd",
+        "data_criacao": "2026-02-12T00:42:53.382329+00:00",
+        "data_atualizacao": "2026-02-12T00:42:53.401327+00:00"
+    },
+    {
+        "id": "2f19b807-1127-4a67-be4a-08e11f5709cc",
+        "nome": "Henrique Naoki",
+        "celular": "11912345678",
+        "data_nascimento": null,
+        "id_responsavel": null,
+        "parentesco": null,
+        "id_residencia": "4a37c70e-5272-4da7-8693-6b7df9cd61dd",
+        "data_criacao": "2026-02-12T00:43:03.046602+00:00",
+        "data_atualizacao": "2026-02-12T00:43:03.061632+00:00"
+    }
+]
