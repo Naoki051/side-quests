@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Minutas</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/motivos.css') }}">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container"></div>
+    </nav>
+    <!-- App -->
+    <main id="app" class="container">
+        <!-- Header -->
+        <header>
+            <h1>Gerador de Minutas</h1>
+        </header>
+        <!-- Formulário principal -->
+        <form class="generator__form">
+            <!-- Coluna esquerda -->
+            <div class="generator__column">
+                <section class="generator__section">
+                    <div class="generator__section-header">
+                        <h3 class="generator__section-title">Dados Básicos</h3>
+                    </div>
+                    <div class="generator__field">
+                        <label for="processo_numero">Número do Processo</label>
+                        <input type="text" id="processo_numero" name="processo_numero" class="generator__input"
+                            placeholder="TC-000000.000.00-0">
+                    </div>
+                    <div class="generator__field">
+                        <label for="exercicio">Exercício em análise</label>
+                        <select id="exercicio" name="exercicio" class="generator__select" required>
+                            <option value="">Ano</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                        </select>
+                    </div>
+                    <div class="generator__field">
+                        <label for="municipio">Município</label>
+                        <select id="municipio" name="municipio" class="generator__select" required>
+                            <option value="">Selecione um Município...</option>
+                            <!-- Carregados dinamicamente -->
+                        </select>
+                    </div>
+                </section>
+                <section class="generator__section">
+                    <div class="generator__section-header">
+                        <h3 class="generator__section-title">Dados do Parecer</h3>
+                    </div>
+                    <div class="generator__field">
+                        <label>Posicionamento</label>
+                        <div class="generator__radio-group">
+                            <label><input type="radio" name="posicionamento" value="favoravel"> Favorável</label>
+                            <label><input type="radio" name="posicionamento" value="desfavoravel"> Desfavorável</label>
+                        </div>
+                    </div>
+                    <div class="generator__field">
+                        <label>Segue entendimento da DIPE?</label>
+                        <div class="generator__radio-group">
+                            <label><input type="radio" name="segue_dipe" value="sim"> Sim</label>
+                            <label><input type="radio" name="segue_dipe" value="nao"> Não</label>
+                        </div>
+                    </div>
+                    <div class="generator__field">
+                        <label>Acompanhamento</label>
+                        <div class="generator__radio-group generator__radio-group--vertical">
+                            <label><input type="radio" name="acompanhamento" value="semestral"> Semestral</label>
+                            <label><input type="radio" name="acompanhamento" value="quadrimestral">
+                                Quadrimestral</label>
+                            <label><input type="radio" name="acompanhamento" value="nao_houve"> Não houve</label>
+                        </div>
+                    </div>
+                </section>
+                <section class="generator__section">
+                    <div class="generator__section-header">
+                        <h3 class="generator__section-title">Incluir Tabelas</h3>
+                    </div>
+                    <div class="generator__checkbox-group">
+                        <label><input type="checkbox" name="tabelas" value="iegm"> <span>IEG-M</span></label>
+                        <label><input type="checkbox" name="tabelas" value="creches"> <span>Vagas em
+                                Creches</span></label>
+                        <label><input type="checkbox" name="tabelas" value="financeiro"> <span>Resultado
+                                Financeiro</span></label>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Coluna direita -->
+            <div class="generator__column">
+                <!-- Temas e motivos -->
+                <section class="generator__section">
+                    <div class="generator__section-header">
+                        <h3 class="generator__section-title">
+                            Temas e Motivos de Irregularidade
+                        </h3>
+                    </div>
+                    <div id="container-arvore">
+                    </div>
+                </section>
+                <!-- Recomendações -->
+                <section class="generator__section">
+
+                    <div class="generator__section-header">
+                        <h3 class="generator__section-title">Recomendações</h3>
+                    </div>
+
+                    <div id="recomendacoes-obrigatorias" class="rec-group">
+                        <h4 class="rec-subtitle">Obrigatórias do Assunto</h4>
+                        <div class="rec-content"></div>
+                    </div>
+
+                    <div id="recomendacoes-especificas" class="rec-group">
+                        <h4 class="rec-subtitle">Específicas do Motivo</h4>
+                        <div class="rec-content"></div>
+                    </div>
+                    <div id="recomendacoes-adicionais" class="rec-group">
+                        <h4 class="rec-subtitle">Selecionar Adicionais</h4>
+                        <div class="search-box">
+                            <input type="text" id="search-rec" placeholder="🔍 Buscar recomendação..."
+                                class="generator__input">
+                        </div>
+                        <div id="lista-rec-adicionais" class="rec-list-scroll"></div>
+                    </div>
+                </section>
+                <!-- Ofícios -->
+                <section class="generator__section">
+                    <div class="generator__section-header">
+                        <h3 class="generator__section-title">Ofícios a expedir</h3>
+                    </div>
+                    <div class="generator__checkbox-group">
+                        <div class="generator__field">
+                            <label>
+                                <input type="checkbox" class="generator__checkbox-item" name="oficio" value="Auto_de_Vistoria_do_Corpo_de_Bombeiros">
+                                Auto de vistoria do corpo de bombeiros
+                            </label>
+                        </div>
+                        <div class="generator__field">
+                            <label>
+                                <input type="checkbox" class="generator__checkbox-item" name="oficio"
+                                    value="Comunicacao_MP_Educacao"> Ministério público - Educação
+                            </label>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+
+        </form>
+        <div class="generator__actions">
+            <button type="button" id="btn-gerar-payload" class="btn-primary btn-large">
+                Gerar Minuta
+            </button>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Gerador de Minutas - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="modal-tabelas" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-titulo">Configurar Tabela</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Selecione os anos (exercícios) que deseja incluir na minuta:</p>
+                <div id="container-tabela-preview">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn-confirmar-tabela" class="btn-primary">Confirmar Seleção</button>
+            </div>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>
